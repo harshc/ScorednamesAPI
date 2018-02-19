@@ -15,7 +15,7 @@ namespace scorednameAPI.Controllers
     public class ScoredNameController : Controller
     {
         private readonly ScoredNameContext _context;
-      
+
         public ScoredNameController(ScoredNameContext context)
         {
             _context = context;
@@ -37,6 +37,15 @@ namespace scorednameAPI.Controllers
             }
 
             return new ObjectResult(name);
+        }
+
+        [HttpGet("{name}/{count:int}")]
+        public IEnumerable<ScoredName> GetByName(string name, int count)
+        {
+            count = count == 0 ? 10 : count;
+
+            IEnumerable<ScoredName> matchingName = _context.ScoredNames.Where(n => n.Name.Contains(name)).OrderByDescending(k => k.Score).Take(count);
+            return matchingName.ToList();
         }
         
         [HttpPost]

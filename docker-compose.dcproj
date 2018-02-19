@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.0</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>9ba1f48d-2ed8-4821-b10a-82a23ec77aa3</ProjectGuid>
+    <ProjectGuid>14430ea0-6268-4028-81ec-4eb81445c6ef</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>http://localhost:{ServicePort}/api/scoredname</DockerServiceUrl>
     <DockerServiceName>scorednameapi</DockerServiceName>

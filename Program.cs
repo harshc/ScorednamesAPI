@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore;
+﻿using App.Metrics.AspNetCore;
+using App.Metrics.Health;
+using App.Metrics.AspNetCore.Health;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace indexProcessorWeb
+namespace scorednameAPI
 {
     public class Program
     {
@@ -12,6 +15,8 @@ namespace indexProcessorWeb
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseMetrics()
+                .UseHealth()
                 .UseStartup<Startup>()
                 .Build();
     }

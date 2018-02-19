@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using indexProcessorWeb.Models;
+﻿using scorednameAPI.Models;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using scorednameAPI.Healthchecks;
+using App.Metrics.Health.Builder;
+using App.Metrics.Health;
 
-namespace indexProcessorWeb.Controllers
+namespace scorednameAPI.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class ScoredNameController : Controller
     {
         private readonly ScoredNameContext _context;
-
-        public ScoredNameController(ScoredNameContext context )
+      
+        public ScoredNameController(ScoredNameContext context)
         {
             _context = context;
-
-            if (_context.ScoredNames.Count() == 0)
-            {
-                Random rnd = new Random();
-                _context.ScoredNames.Add(new ScoredName { Name = "someRandomName", Score = rnd.Next(1000) });
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]
@@ -54,6 +48,5 @@ namespace indexProcessorWeb.Controllers
             return Ok();
    
         }
-
     }
 }

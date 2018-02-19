@@ -1,4 +1,4 @@
-﻿namespace indexProcessorWeb.Models
+﻿namespace scorednameAPI.Models
 {
     public class ScoredName
     {

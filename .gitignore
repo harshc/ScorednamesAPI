@@ -7,3 +7,4 @@
 # ignore obj and bin
 obj/
 bin/
+.vs/
